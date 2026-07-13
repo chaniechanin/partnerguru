@@ -59,19 +59,12 @@
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var keyEl = form.querySelector('input[name="access_key"]');
-      var key = keyEl ? keyEl.value : "";
       var btn = form.querySelector('button[type="submit"]');
       var original = btn ? btn.textContent : "";
-
-      // If the form key isn't set up yet, fall back to opening an email.
-      if (!key || key.indexOf("WEB3FORMS_KEY") === 0) {
-        window.location.href =
-          "mailto:mendychanin@gmail.com?subject=" + encodeURIComponent("Partnership inquiry");
-        return;
-      }
-
+      var oldErr = form.querySelector(".form-error");
+      if (oldErr) oldErr.remove();
       if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+
       fetch("https://api.web3forms.com/submit", { method: "POST", body: new FormData(form) })
         .then(function (res) { return res.json(); })
         .then(function (data) {
@@ -79,13 +72,16 @@
           form.innerHTML =
             '<div class="form-success" role="status">' +
             "<h3>Thank you — your message is on its way.</h3>" +
-            "<p>I’ll get back to you personally, and in complete confidence.</p>" +
+            "<p>I’ll get back to you personally, and with discretion.</p>" +
             "</div>";
         })
         .catch(function () {
           if (btn) { btn.disabled = false; btn.textContent = original; }
-          window.location.href =
-            "mailto:mendychanin@gmail.com?subject=" + encodeURIComponent("Partnership inquiry");
+          var note = document.createElement("p");
+          note.className = "form-error";
+          note.setAttribute("role", "alert");
+          note.textContent = "Sorry — something went wrong sending your message. Please try again in a moment.";
+          form.appendChild(note);
         });
     });
   }

@@ -549,6 +549,7 @@ body.menu-open { overflow: hidden; }
 .form-success { text-align: center; padding: 1.5rem 0.5rem; }
 .form-success h3 { color: #fff; font-size: 1.6rem; margin-bottom: 0.6rem; }
 .form-success p { color: rgba(255, 255, 255, 0.82); margin: 0; }
+.form-error { color: #ffd9d0; font-size: 0.92rem; text-align: center; margin: 1rem 0 0; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 3.5rem 0 2rem; }
