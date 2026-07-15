@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confidential Intake | PartnerGuru</title>
+  <meta name="description" content="Confidential pre-call intake for PartnerGuru clients." />
+  <!-- Keep this page out of search engines. It is meant to be shared privately. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#16233d" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    /* Page-specific layout for the intake form */
+    .intake-hero {
+      background: var(--navy);
+      color: #fff;
+      padding: clamp(5.5rem, 12vw, 7.5rem) clamp(1.25rem, 5vw, 1.75rem) clamp(3rem, 7vw, 4.5rem);
+      text-align: center;
+    }
+    .intake-hero .container { max-width: 640px; }
+    .intake-hero .badge {
+      display: inline-block; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--blue-2); border: 1px solid rgba(140,196,224,0.35); border-radius: 999px;
+      padding: 0.4rem 0.9rem; margin-bottom: 1.4rem;
+    }
+    .intake-hero h1 { color: #fff; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.08; }
+    .intake-hero p { color: rgba(255,255,255,0.78); font-size: 1.05rem; margin-top: 1rem; }
+
+    .intake-section { background: var(--navy); padding: 0 0 clamp(4rem, 9vw, 6rem); }
+    .intake-form { max-width: 640px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 1.75rem); text-align: left; }
+
+    /* Reuse the site's dark-field form look */
+    .intake-form label.q { display: block; font-size: 0.9rem; font-weight: 600; color: rgba(255,255,255,0.92); margin-top: 1.6rem; }
+    .intake-form .opt { font-weight: 400; color: rgba(255,255,255,0.5); }
+    .intake-form input[type="text"],
+    .intake-form input[type="email"],
+    .intake-form input[type="tel"],
+    .intake-form textarea {
+      width: 100%; margin-top: 0.5rem; padding: 0.85rem 1rem;
+      font: inherit; color: #fff; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.18); border-radius: 12px;
+    }
+    .intake-form input::placeholder, .intake-form textarea::placeholder { color: rgba(255,255,255,0.4); }
+    .intake-form input:focus, .intake-form textarea:focus {
+      outline: none; border-color: var(--blue); background: rgba(255,255,255,0.10);
+    }
+    .intake-form .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .intake-form .hint { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin: 0.4rem 0 0; font-weight: 400; }
+
+    /* Checkbox / radio groups */
+    .choices { margin-top: 0.7rem; display: grid; gap: 0.55rem; }
+    .choices.two { grid-template-columns: 1fr 1fr; }
+    .choice {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 10px; padding: 0.7rem 0.85rem; cursor: pointer;
+      font-size: 0.92rem; color: rgba(255,255,255,0.9); font-weight: 400; transition: border-color .15s, background .15s;
+    }
+    .choice:hover { border-color: rgba(140,196,224,0.5); }
+    .choice input { margin-top: 0.15rem; accent-color: var(--blue); width: 16px; height: 16px; flex: none; }
+    .choice:has(input:checked) { border-color: var(--blue); background: rgba(105,176,211,0.14); }
+
+    .intake-form .btn-block { margin-top: 2rem; }
+    .intake-note { font-size: 0.85rem; color: rgba(255,255,255,0.55); text-align: center; margin-top: 1.4rem; }
+    .intake-note a { color: var(--blue-2); }
+
+    .form-success { text-align: center; padding: 2rem 0.5rem; }
+    .form-success h3 { color: #fff; font-size: 1.7rem; margin-bottom: 0.6rem; }
+    .form-success p { color: rgba(255,255,255,0.82); margin: 0; }
+    .form-error { color: #ffd9d0; font-size: 0.92rem; text-align: center; margin: 1rem 0 0; }
+    .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    @media (max-width: 560px) {
+      .intake-form .field-row { grid-template-columns: 1fr; }
+      .choices.two { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="intake-hero">
+    <div class="container">
+      <img src="../assets/logo.png" alt="PartnerGuru" style="height:52px;width:auto;margin-bottom:1.4rem;" />
+      <div class="badge">Confidential Intake</div>
+      <h1>A few questions before we talk.</h1>
+      <p>Thank you for taking the time. Your answers help our conversation go straight to what matters — and everything you share is held in strict confidence.</p>
+    </div>
+  </header>
+
+  <main class="intake-section">
+    <form class="intake-form" id="intakeForm" method="POST">
+      <input type="hidden" name="access_key" value="3106eacb-1922-40fb-bf58-6ef650ca9e7f" />
+      <input type="hidden" name="subject" value="New PartnerGuru intake form" />
+      <input type="hidden" name="from_name" value="PartnerGuru intake" />
+      <p class="hp-field" aria-hidden="true"><label>Leave this field empty if you're human:<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" /></label></p>
+
+      <div class="field-row">
+        <label class="q">Your name
+          <input type="text" name="Name" required placeholder="Full name" />
+        </label>
+        <label class="q">Company / business
+          <input type="text" name="Company" placeholder="Business name" />
+        </label>
+      </div>
+
+      <div class="field-row">
+        <label class="q">Your role
+          <input type="text" name="Role" placeholder="Founder, co-owner, partner…" />
+        </label>
+        <label class="q">Best phone
+          <input type="tel" name="Phone" placeholder="(___) ___-____" />
+        </label>
+      </div>
+
+      <label class="q">Best email
+        <input type="email" name="Email" required placeholder="you@email.com" />
+      </label>
+
+      <label class="q">In a sentence or two — what's the situation or decision you're facing?
+        <textarea name="The situation" rows="3" required placeholder="A short summary is perfect. We'll go deeper on the call."></textarea>
+      </label>
+
+      <label class="q" style="cursor:default;">Which best describes it? <span class="opt">(check any)</span></label>
+      <div class="choices two">
+        <label class="choice"><input type="checkbox" name="Type of situation" value="Starting a new partnership / joint venture" /> Starting a new partnership / joint venture</label>
+        <label class="choice"><input type="checkbox" name="Type of situation" value="Different visions between partners" /> Different visions between partners</label>
+        <label class="choice"><input type="checkbox" name="Type of situation" value="Equity / ownership question" /> Equity / ownership question</label>
+        <label class="choice"><input type="checkbox" name="Type of situation" value="Considering a buyout or exit" /> Considering a buyout or exit</label>
+        <label class="choice"><input type="checkbox" name="Type of situation" value="Succession / next chapter" /> Succession / next chapter</label>
+        <label class="choice"><input type="checkbox" name="Type of situation" value="Active conflict or dispute" /> Active conflict or dispute</label>
+        <label class="choice"><input type="checkbox" name="Type of situation" value="Considering or facing litigation" /> Considering or facing litigation</label>
+        <label class="choice"><input type="checkbox" name="Type of situation" value="Something else" /> Something else</label>
+      </div>
+
+      <label class="q">Who else is involved? <span class="opt">(partners, investors, family…)</span>
+        <input type="text" name="Who else is involved" placeholder="Names or roles" />
+      </label>
+
+      <label class="q">What's at stake if this goes the wrong way?
+        <textarea name="What's at stake" rows="2" placeholder="Financially, and otherwise."></textarea>
+      </label>
+
+      <label class="q" style="cursor:default;">Do the others involved know you're seeking help?</label>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="Do others know" value="Yes, they know" /> Yes — they know</label>
+        <label class="choice"><input type="radio" name="Do others know" value="Still just me exploring" /> Still just me exploring</label>
+        <label class="choice"><input type="radio" name="Do others know" value="Not sure yet" /> Not sure yet</label>
+      </div>
+
+      <label class="q">Is anything creating a deadline? <span class="opt">(a deal, an event, a filing)</span>
+        <input type="text" name="Deadline" placeholder="Or 'none right now'" />
+      </label>
+
+      <label class="q">What would a good outcome look like for you?
+        <textarea name="Ideal outcome" rows="2" placeholder="In your own words."></textarea>
+      </label>
+
+      <label class="q" style="cursor:default;">How soon are you hoping to move?</label>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="Timeframe" value="This week" /> This week</label>
+        <label class="choice"><input type="radio" name="Timeframe" value="This month" /> This month</label>
+        <label class="choice"><input type="radio" name="Timeframe" value="Just exploring" /> Just exploring</label>
+      </div>
+
+      <label class="q">Anything else I should know before we talk?
+        <textarea name="Anything else" rows="3" placeholder="Optional — anything on your mind."></textarea>
+      </label>
+
+      <button type="submit" class="btn btn-primary btn-block">Send confidentially</button>
+      <p class="intake-note">Your answers go straight to Mendy and no one else. <a href="../privacy.html">How your information is handled</a>.</p>
+    </form>
+  </main>
+
+  <script>
+    (function () {
+      var form = document.getElementById("intakeForm");
+      if (!form) return;
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var original = btn ? btn.textContent : "";
+        var oldErr = form.querySelector(".form-error");
+        if (oldErr) oldErr.remove();
+        if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+
+        fetch("https://api.web3forms.com/submit", { method: "POST", body: new FormData(form) })
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            if (!data.success) throw new Error("submit failed");
+            form.innerHTML =
+              '<div class="form-success" role="status">' +
+              "<h3>Thank you — this is on its way to Mendy.</h3>" +
+              "<p>I've got what I need to make our conversation count. Talk soon, and in confidence.</p>" +
+              "</div>";
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          })
+          .catch(function () {
+            if (btn) { btn.disabled = false; btn.textContent = original; }
+            var note = document.createElement("p");
+            note.className = "form-error";
+            note.setAttribute("role", "alert");
+            note.textContent = "Sorry — something went wrong sending this. Please try again in a moment.";
+            form.appendChild(note);
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
