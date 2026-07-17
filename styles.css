@@ -474,6 +474,35 @@ body.menu-open { overflow: hidden; }
 }
 .fit-cta { text-align: center; }
 
+/* ---------- Hero credibility line ---------- */
+.hero-credibility {
+  margin-top: 1.1rem;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--blue-deep);
+  font-weight: 600;
+  max-width: 46ch;
+}
+
+/* ---------- Before You Spend Years in Court ---------- */
+.litigation { background: var(--navy); color: #fff; }
+.litigation h2 { color: #fff; }
+.lit-body { margin-top: 1.9rem; }
+.lit-body p {
+  color: rgba(255, 255, 255, 0.80);
+  font-size: 1.07rem; line-height: 1.75; margin-top: 1.15rem; max-width: 62ch;
+}
+.lit-lead {
+  font-family: "Fraunces", serif; color: #fff !important;
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem) !important; line-height: 1.32 !important;
+  margin-top: 0 !important;
+}
+.lit-close {
+  font-family: "Fraunces", serif; font-style: italic; color: var(--blue-2) !important;
+  font-size: clamp(1.15rem, 2.1vw, 1.45rem) !important; line-height: 1.4 !important;
+  margin-top: 1.8rem !important;
+}
+
 /* ---------- Testimonials ---------- */
 .testimonials { background: var(--paper); }
 .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
