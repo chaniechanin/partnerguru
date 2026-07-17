@@ -442,6 +442,27 @@ body.menu-open { overflow: hidden; }
 .fit-callout h3 { color: #fff; font-size: clamp(1.35rem, 2.5vw, 1.6rem); margin-bottom: 0.9rem; }
 .fit-callout p { color: rgba(255, 255, 255, 0.85); font-size: 1.04rem; line-height: 1.72; margin: 0; }
 .fit-callout em { color: var(--blue-2); font-style: italic; }
+.fit-intro { font-weight: 600; color: #fff !important; margin-bottom: 1.1rem !important; }
+.fit-list {
+  list-style: none; padding: 0; margin: 0 0 1.4rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem 1.6rem;
+}
+.fit-list li {
+  position: relative; padding-left: 1.9rem;
+  color: rgba(255, 255, 255, 0.92); font-size: 1.02rem; line-height: 1.5;
+}
+.fit-list li::before {
+  content: "✓"; position: absolute; left: 0; top: -0.05rem;
+  color: var(--navy); background: var(--blue); font-size: 0.72rem; font-weight: 700;
+  width: 1.25rem; height: 1.25rem; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.fit-not {
+  margin: 0 !important; padding-top: 1.3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.62) !important; font-size: 0.98rem !important;
+}
+@media (max-width: 620px) { .fit-list { grid-template-columns: 1fr; } }
 .fit-close {
   font-family: "Fraunces", serif;
   font-size: clamp(1.2rem, 2.2vw, 1.45rem);
