@@ -898,7 +898,9 @@ body.menu-open { overflow: hidden; }
 
 @media (max-width: 460px) {
   .cards { grid-template-columns: 1fr; }
-  .hero-trust { gap: 1.4rem; }
+  .hero-trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem 0.6rem; }
+  .hero-trust strong { font-size: 1.2rem; }
+  .hero-trust span { font-size: 0.66rem; letter-spacing: 0.07em; }
   .hero-actions .btn { width: 100%; }
   .brand-mark { width: 44px; height: 44px; }
   .tier { padding: 1.9rem 1.5rem; }
