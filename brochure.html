@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PartnerGuru — A Private Guide</title>
-  <meta name="description" content="A private guide for founders and partners facing high-stakes decisions." />
+  <meta name="description" content="A private guide for founders, partners, and investors facing high-stakes decisions." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,7 +38,7 @@
     }
     .print-hint strong{ color:#fff; }
 
-    /* ---- running header / footer ---- */
+    /* running header / footer */
     .rh{ display:flex; align-items:center; justify-content:space-between; padding:.62in .8in .5rem; }
     .rh .brand{ display:flex; align-items:center; gap:.5rem; }
     .rh .brand img{ height:26px; width:auto; }
@@ -46,30 +46,35 @@
     .navy .rh .brand span{ color:#fff; }
     .rh .sec{ font-size:.66rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
     .navy .rh .sec{ color:var(--blue-2); }
-    .rh::after{ content:none; }
     .hr{ height:1px; background:var(--line); margin:0 .8in; }
     .navy .hr{ background:rgba(255,255,255,.16); }
-
-    .body{ flex:1; padding:.55in .8in .3in; display:flex; flex-direction:column; }
+    .body{ flex:1; padding:.5in .8in .3in; display:flex; flex-direction:column; position:relative; }
     .rf{ display:flex; align-items:center; justify-content:space-between; padding:.4rem .8in .5in;
       font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
     .navy .rf{ color:rgba(255,255,255,.55); }
     .rf .u{ color:var(--blue-deep); font-weight:600; letter-spacing:.1em; }
     .navy .rf .u{ color:var(--blue-2); }
 
-    /* ---- type ---- */
+    /* type */
     .eyebrow{ font-size:.72rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--blue-deep); }
     .navy .eyebrow{ color:var(--blue-2); }
     h1,h2,h3{ font-family:"Fraunces",Georgia,serif; line-height:1.06; color:var(--navy); font-weight:600; }
     .navy h1,.navy h2,.navy h3{ color:#fff; }
     p{ line-height:1.62; }
     .signo{ position:absolute; font-family:"Fraunces",serif; font-weight:600; color:var(--blue-tint);
-      font-size:15rem; line-height:1; top:.3in; right:.55in; z-index:0; user-select:none; }
+      font-size:13rem; line-height:1; top:.15in; right:.5in; z-index:0; user-select:none; }
+    .cream .signo{ color:#ece3d4; }
     .body > *{ position:relative; z-index:1; }
+    .lead-h{ font-size:2.55rem; margin:.35rem 0 .2rem; max-width:6.4in; }
 
-    /* ================= COVER ================= */
-    .cover .frame{ position:absolute; inset:.42in; border:1px solid rgba(255,255,255,.22); border-radius:4px; pointer-events:none; }
-    .cover-in{ flex:1; display:flex; flex-direction:column; justify-content:space-between; padding:.85in .8in; position:relative; z-index:1; }
+    /* icons */
+    .ic{ width:26px; height:26px; fill:none; stroke:var(--blue-deep); stroke-width:1.6;
+      stroke-linecap:round; stroke-linejoin:round; }
+
+    /* ===== COVER ===== */
+    .cover .frame{ position:absolute; inset:.42in; border:1px solid rgba(255,255,255,.22); border-radius:4px; pointer-events:none; z-index:2; }
+    .cover-motif{ position:absolute; top:0; right:0; width:4.4in; height:4.4in; opacity:.5; z-index:1; }
+    .cover-in{ flex:1; display:flex; flex-direction:column; justify-content:space-between; padding:.85in .8in; position:relative; z-index:3; }
     .cover .top{ display:flex; align-items:center; gap:.6rem; }
     .cover .top img{ height:46px; width:auto; }
     .cover .top .wm{ font-family:"Fraunces",serif; font-size:1.4rem; font-weight:600; color:#fff; }
@@ -80,99 +85,133 @@
     .cover .rule{ width:60px; height:3px; background:var(--blue); border-radius:2px; margin:1.5rem 0 1.3rem; }
     .cover .foot{ display:flex; justify-content:space-between; align-items:flex-end; }
     .cover .foot .by{ font-size:1rem; color:#fff; }
-    .cover .foot .by span{ display:block; font-size:.8rem; color:rgba(255,255,255,.6); margin-top:.2rem; letter-spacing:.02em; }
+    .cover .foot .by span{ display:block; font-size:.8rem; color:rgba(255,255,255,.6); margin-top:.2rem; }
     .cover .foot .web{ font-family:"Fraunces",serif; font-size:1.15rem; color:var(--blue-2); }
 
-    /* ================= TOC ================= */
+    /* ===== TOC ===== */
     .toc-h{ font-size:3rem; margin:.2rem 0 .5rem; }
-    .toc-intro{ color:var(--muted); font-size:1.08rem; max-width:5.6in; }
-    .toc{ margin-top:1.4rem; display:flex; flex-direction:column; }
+    .toc-intro{ color:var(--muted); font-size:1.06rem; max-width:5.6in; }
+    .toc{ margin-top:1.2rem; display:flex; flex-direction:column; }
     .toc-row{ display:grid; grid-template-columns:auto 1fr auto; align-items:baseline; gap:1rem;
-      padding:1.05rem 0; border-top:1px solid var(--line); }
+      padding:.92rem 0; border-top:1px solid var(--line); }
     .toc-row:last-child{ border-bottom:1px solid var(--line); }
-    .toc-row .n{ font-family:"Fraunces",serif; font-size:1.5rem; color:var(--blue-deep); font-weight:600; width:1.7rem; }
-    .toc-row .t{ font-family:"Fraunces",serif; font-size:1.35rem; color:var(--navy); }
-    .toc-row .t small{ display:block; font-family:"Inter",sans-serif; font-size:.86rem; color:var(--muted); font-weight:400; margin-top:.2rem; letter-spacing:0; }
-    .toc-row .pg{ font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+    .toc-row .n{ font-family:"Fraunces",serif; font-size:1.4rem; color:var(--blue-deep); font-weight:600; width:1.7rem; }
+    .toc-row .t{ font-family:"Fraunces",serif; font-size:1.28rem; color:var(--navy); }
+    .toc-row .t small{ display:block; font-family:"Inter",sans-serif; font-size:.84rem; color:var(--muted); font-weight:400; margin-top:.15rem; }
+    .toc-row .pg{ font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
 
-    /* ================= ESSAY ================= */
-    .lead-h{ font-size:2.7rem; margin:.4rem 0 .2rem; max-width:6.4in; }
-    .essay p{ color:#3a4256; font-size:1.07rem; margin-top:1rem; }
-    .essay p.first{ margin-top:1.2rem; }
+    /* ===== ESSAY ===== */
+    .essay p{ color:#3a4256; font-size:1.06rem; margin-top:1rem; }
+    .essay p.first{ margin-top:1.15rem; }
     .dropcap::first-letter{ font-family:"Fraunces",serif; font-size:3.4rem; line-height:.8; float:left;
       padding:.1em .12em 0 0; color:var(--blue-deep); font-weight:600; }
-    .pullquote{ margin:1.6rem 0 .3rem; padding:.2rem 0 .2rem 1.4rem; border-left:4px solid var(--blue);
-      font-family:"Fraunces",serif; font-style:italic; font-size:1.75rem; line-height:1.26; color:var(--navy); max-width:6.2in; }
+    .pullquote{ margin:1.5rem 0 .3rem; padding:.2rem 0 .2rem 1.4rem; border-left:4px solid var(--blue);
+      font-family:"Fraunces",serif; font-style:italic; font-size:1.7rem; line-height:1.26; color:var(--navy); max-width:6.2in; }
+    .essay-ill{ display:block; width:100%; max-width:3.4in; margin:.4rem auto .2rem; }
 
-    /* ================= SITUATIONS ================= */
-    .intro-line{ margin-top:.8rem; color:var(--muted); font-size:1.06rem; max-width:6.3in; }
-    .cols{ display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; margin-top:1.4rem; }
-    .col{ border-radius:16px; padding:1.3rem 1.35rem; }
+    /* ===== SITUATIONS ===== */
+    .intro-line{ margin-top:.7rem; color:var(--muted); font-size:1.04rem; max-width:6.3in; }
+    .cols{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.2rem; }
+    .col{ border-radius:16px; padding:1.15rem 1.2rem; }
     .col.build{ background:var(--blue-tint); border:1px solid #cfe6f1; }
     .col.hard{ background:#fff; border:1px solid var(--line); }
-    .cream .col.hard{ background:#fff; }
-    .col .ctag{ font-size:.66rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+    .col .ctag{ font-size:.64rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
     .col.build .ctag{ color:var(--blue-deep); }
     .col.hard .ctag{ color:#a07f3d; }
-    .col h3{ font-size:1.25rem; margin:.2rem 0 0; }
-    .col ul{ list-style:none; margin-top:1rem; display:flex; flex-direction:column; gap:.9rem; }
-    .col li strong{ display:block; font-size:1rem; color:var(--navy); font-weight:600; }
-    .col li span{ font-size:.88rem; color:var(--muted); line-height:1.45; }
+    .col h3{ font-size:1.18rem; margin:.15rem 0 0; }
+    .col ul{ list-style:none; margin-top:.9rem; display:flex; flex-direction:column; gap:.75rem; }
+    .col li{ display:grid; grid-template-columns:auto 1fr; gap:.65rem; align-items:start; }
+    .ictile{ width:34px; height:34px; border-radius:9px; display:flex; align-items:center; justify-content:center; flex:none; }
+    .col.build .ictile{ background:#fff; }
+    .col.hard .ictile{ background:var(--cream); }
+    .col.hard .ic{ stroke:#a07f3d; }
+    .col li strong{ display:block; font-size:.96rem; color:var(--navy); font-weight:600; }
+    .col li span.d{ font-size:.83rem; color:var(--muted); line-height:1.4; }
 
-    /* ================= PROCESS ================= */
-    .sub-note{ margin-top:.7rem; color:var(--muted); font-size:1.02rem; max-width:6in; }
-    .steps{ margin-top:1.5rem; display:flex; flex-direction:column; gap:1.15rem; }
-    .step{ display:flex; gap:1.15rem; align-items:flex-start; }
-    .step .num{ flex:none; width:58px; height:58px; border-radius:50%; background:var(--navy); color:#fff;
-      font-family:"Fraunces",serif; font-size:1.5rem; display:flex; align-items:center; justify-content:center; }
-    .step h3{ font-size:1.3rem; }
-    .step p{ font-size:.98rem; color:var(--muted); margin-top:.25rem; max-width:5.4in; }
-    .badges{ display:flex; gap:.55rem; margin-top:1.7rem; flex-wrap:wrap; }
-    .badge{ font-size:.8rem; font-weight:600; color:var(--navy); background:#fff;
-      border:1px solid var(--line); border-radius:999px; padding:.55rem 1rem; }
+    /* ===== PROCESS ===== */
+    .sub-note{ margin-top:.6rem; color:var(--muted); font-size:1rem; max-width:6in; }
+    .proc-dia{ width:100%; max-width:6.6in; margin:1.5rem auto .4rem; display:block; }
+    .proc-cols{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:.4rem; }
+    .proc-cols h3{ font-size:1.12rem; }
+    .proc-cols p{ font-size:.92rem; color:var(--muted); margin-top:.3rem; line-height:1.5; }
+    .badges{ display:flex; gap:.55rem; margin-top:1.6rem; flex-wrap:wrap; justify-content:center; }
+    .badge{ font-size:.78rem; font-weight:600; color:var(--navy); background:#fff;
+      border:1px solid var(--line); border-radius:999px; padding:.5rem .95rem; }
+    .cream .badge{ background:#fff; }
     .badge b{ color:var(--blue-deep); }
 
-    /* ================= LITIGATION (navy statement) ================= */
+    /* ===== CASE STUDY ===== */
+    .cs-label{ display:inline-block; font-size:.66rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+      color:var(--blue-deep); background:var(--blue-tint); border:1px solid #cfe6f1; border-radius:999px; padding:.35rem .8rem; margin-bottom:.9rem; }
+    .cs p{ color:#3a4256; font-size:1.02rem; margin-top:.9rem; max-width:6.3in; }
+    .crossroads{ width:100%; max-width:6.4in; margin:1.1rem auto .3rem; display:block; }
+    .cs-outcome{ margin-top:1rem; display:flex; gap:1.3rem; flex-wrap:wrap; padding-top:1rem; border-top:1px solid var(--line); }
+    .cs-outcome .o{ }
+    .cs-outcome .o b{ display:block; font-family:"Fraunces",serif; font-size:1.5rem; color:var(--blue-deep); line-height:1; }
+    .cs-outcome .o span{ font-size:.82rem; color:var(--muted); }
+    .cs-foot{ margin-top:.9rem; font-size:.72rem; color:var(--muted); font-style:italic; }
+
+    /* ===== LITIGATION ===== */
     .lit .body{ justify-content:center; padding:.8in .95in; }
-    .lit h2{ font-size:3.4rem; line-height:1.04; max-width:6.2in; margin:.6rem 0 0; }
+    .lit h2{ font-size:3.3rem; line-height:1.04; max-width:6.2in; margin:.5rem 0 0; }
     .lit h2 em{ font-style:italic; color:var(--blue-2); font-weight:500; }
-    .lit .p{ margin-top:1.5rem; font-size:1.14rem; line-height:1.65; color:rgba(255,255,255,.86); max-width:6in; }
-    .lit .close{ margin-top:1.4rem; font-family:"Fraunces",serif; font-style:italic; font-size:1.4rem;
+    .lit .p{ margin-top:1.4rem; font-size:1.12rem; line-height:1.65; color:rgba(255,255,255,.86); max-width:6in; }
+    .lit .close{ margin-top:1.3rem; font-family:"Fraunces",serif; font-style:italic; font-size:1.35rem;
       line-height:1.34; color:#fff; max-width:6in; }
     .lit .close b{ color:var(--blue-2); font-style:normal; font-weight:500; }
+    .lit-motif{ position:absolute; right:-.3in; bottom:-.3in; width:4in; opacity:.5; z-index:0; }
 
-    /* ================= ABOUT ================= */
-    .about-top{ display:grid; grid-template-columns:2.5in 1fr; gap:1.4rem; align-items:start; margin-top:.4rem; }
+    /* ===== GAINS ===== */
+    .gains{ display:grid; grid-template-columns:1fr 1fr; gap:1rem 1.3rem; margin-top:1.3rem; }
+    .gain{ display:grid; grid-template-columns:auto 1fr; gap:.85rem; align-items:start;
+      background:#fff; border:1px solid var(--line); border-radius:14px; padding:1.05rem 1.1rem; }
+    .gain .ictile{ width:40px; height:40px; border-radius:10px; background:var(--blue-tint); }
+    .gain h3{ font-size:1.02rem; }
+    .gain p{ font-size:.85rem; color:var(--muted); margin-top:.2rem; line-height:1.45; }
+
+    /* ===== ABOUT ===== */
+    .about-top{ display:grid; grid-template-columns:2.5in 1fr; gap:1.4rem; align-items:start; margin-top:.3rem; }
     .about-top img{ width:100%; border-radius:16px; display:block; box-shadow:0 10px 26px rgba(22,35,61,.24); }
-    .about-copy p{ font-size:1.02rem; color:#3a4256; margin-top:.85rem; }
+    .about-copy p{ font-size:1rem; color:#3a4256; margin-top:.75rem; }
     .about-copy p.first{ margin-top:0; }
-    .creds{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.2rem; }
-    .creds span{ font-size:.78rem; font-weight:600; color:var(--navy); background:var(--blue-tint);
-      border:1px solid #cfe6f1; border-radius:999px; padding:.45rem .85rem; }
-    .sig{ margin-top:1.3rem; font-family:"Fraunces",serif; font-style:italic; font-size:1.15rem; color:var(--navy); }
+    .creds{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.1rem; }
+    .creds span{ font-size:.77rem; font-weight:600; color:var(--navy); background:var(--blue-tint);
+      border:1px solid #cfe6f1; border-radius:999px; padding:.42rem .8rem; }
+    .sig{ margin-top:1.2rem; font-family:"Fraunces",serif; font-style:italic; font-size:1.12rem; color:var(--navy); }
 
-    /* ================= TESTIMONIALS ================= */
-    .quotes{ margin-top:1.3rem; display:flex; flex-direction:column; gap:1rem; }
-    .q{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:1.15rem 1.3rem; position:relative; }
-    .cream .q{ background:#fff; }
-    .q .mark{ font-family:"Fraunces",serif; font-size:2.4rem; color:var(--blue); line-height:.4; }
-    .q blockquote{ font-size:.98rem; line-height:1.55; color:#3a4256; margin-top:.3rem; }
-    .q figcaption{ margin-top:.7rem; font-size:.85rem; }
+    /* ===== TESTIMONIALS ===== */
+    .quotes{ margin-top:1.2rem; display:flex; flex-direction:column; gap:.9rem; }
+    .q{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:1.05rem 1.25rem; }
+    .q .mark{ font-family:"Fraunces",serif; font-size:2.2rem; color:var(--blue); line-height:.4; }
+    .q blockquote{ font-size:.95rem; line-height:1.5; color:#3a4256; margin-top:.25rem; }
+    .q figcaption{ margin-top:.6rem; font-size:.84rem; }
     .q figcaption strong{ color:var(--navy); }
     .q figcaption span{ color:var(--muted); }
-    .refs{ margin-top:1.2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
-    .refs .r{ font-family:"Fraunces",serif; font-style:italic; font-size:1.05rem; color:var(--blue-deep); }
-    .refs .d{ font-size:.72rem; color:var(--muted); max-width:3.6in; text-align:right; }
+    .refs{ margin-top:1.1rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .refs .r{ font-family:"Fraunces",serif; font-style:italic; font-size:1.02rem; color:var(--blue-deep); }
+    .refs .d{ font-size:.7rem; color:var(--muted); max-width:3.5in; text-align:right; }
 
-    /* ================= BACK ================= */
+    /* ===== HOW TO BEGIN ===== */
+    .begin-steps{ margin-top:1.4rem; display:flex; flex-direction:column; gap:1.15rem; }
+    .bstep{ display:grid; grid-template-columns:auto 1fr; gap:1.15rem; align-items:start; }
+    .bstep .bn{ flex:none; width:52px; height:52px; border-radius:50%; background:var(--navy); color:#fff;
+      font-family:"Fraunces",serif; font-size:1.4rem; display:flex; align-items:center; justify-content:center; }
+    .bstep h3{ font-size:1.22rem; }
+    .bstep p{ font-size:.98rem; color:var(--muted); margin-top:.25rem; max-width:5.6in; }
+    .begin-note{ margin-top:1.5rem; background:var(--blue-tint); border:1px solid #cfe6f1; border-radius:14px;
+      padding:1.15rem 1.3rem; }
+    .begin-note p{ font-size:1rem; color:var(--ink); }
+    .begin-note strong{ color:var(--blue-deep); }
+
+    /* ===== BACK ===== */
     .back .body{ align-items:center; text-align:center; justify-content:center; padding:1in .9in; }
-    .back img.mk{ height:58px; width:auto; margin-bottom:1.7rem; }
-    .back h2{ font-size:2.7rem; max-width:6in; }
+    .back img.mk{ height:58px; width:auto; margin-bottom:1.6rem; }
+    .back h2{ font-size:2.6rem; max-width:6in; }
     .back h2 em{ font-style:italic; color:var(--blue-2); font-weight:500; }
-    .back .sub{ margin-top:1.1rem; font-size:1.12rem; color:rgba(255,255,255,.84); max-width:5.2in; }
-    .back .rule{ width:60px; height:3px; background:var(--blue); border-radius:2px; margin:1.7rem auto; }
+    .back .sub{ margin-top:1.05rem; font-size:1.1rem; color:rgba(255,255,255,.84); max-width:5.2in; }
+    .back .rule{ width:60px; height:3px; background:var(--blue); border-radius:2px; margin:1.6rem auto; }
     .back .web{ font-family:"Fraunces",serif; font-size:2rem; color:#fff; }
-    .back .meta{ margin-top:.7rem; font-size:.74rem; letter-spacing:.2em; text-transform:uppercase; color:var(--blue-2); }
+    .back .meta{ margin-top:.65rem; font-size:.74rem; letter-spacing:.2em; text-transform:uppercase; color:var(--blue-2); }
 
     @media print{
       html,body{ background:#fff; }
@@ -188,11 +227,16 @@
 <body>
   <div class="doc">
 
-    <p class="print-hint">📄 <strong>To save as a PDF:</strong> press <strong>Ctrl/Cmd&nbsp;+&nbsp;P</strong> → Destination <strong>“Save as PDF”</strong> → Margins <strong>None</strong> → turn on <strong>“Background graphics.”</strong> This note won't appear in the PDF.</p>
+    <p class="print-hint">📄 <strong>To save as a PDF:</strong> press <strong>Ctrl/Cmd&nbsp;+&nbsp;P</strong> → Destination <strong>“Save as PDF”</strong> → Margins <strong>None</strong> → turn on <strong>“Background graphics.”</strong> (12 pages — a multiple of 4, ready for booklet printing.) This note won't appear in the PDF.</p>
 
     <!-- ============ 1. COVER ============ -->
     <section class="page navy cover">
       <div class="frame"></div>
+      <svg class="cover-motif" viewBox="0 0 300 300" fill="none" stroke="#8cc4e0" stroke-width="1">
+        <circle cx="300" cy="0" r="70"/><circle cx="300" cy="0" r="120"/>
+        <circle cx="300" cy="0" r="170"/><circle cx="300" cy="0" r="220"/>
+        <path d="M300 0 L110 300"/><path d="M300 0 L180 300"/><path d="M300 0 L40 250"/>
+      </svg>
       <div class="cover-in">
         <div class="top">
           <img src="assets/logo-white.png" alt="PartnerGuru" />
@@ -217,15 +261,17 @@
       <div class="hr"></div>
       <div class="body">
         <p class="eyebrow">Contents</p>
-        <h2 class="toc-h">Inside these pages</h2>
-        <p class="toc-intro">A short introduction to how I think about partnership decisions — and how I help you make the ones that matter most.</p>
+        <h2 class="toc-h">Inside this guide</h2>
+        <p class="toc-intro">How I think about partnership decisions — and how I help you make the ones that matter most, with millions of dollars in business value often on the line.</p>
         <div class="toc">
           <div class="toc-row"><span class="n">01</span><span class="t">A point of view<small>Why most partnership problems aren't what they seem</small></span><span class="pg">Page 03</span></div>
           <div class="toc-row"><span class="n">02</span><span class="t">Where I help<small>The moments, from first handshake to final exit</small></span><span class="pg">Page 04</span></div>
           <div class="toc-row"><span class="n">03</span><span class="t">How the work works<small>A focused process, not open-ended consulting</small></span><span class="pg">Page 05</span></div>
-          <div class="toc-row"><span class="n">04</span><span class="t">Before you litigate<small>The most expensive decision you can rush</small></span><span class="pg">Page 06</span></div>
-          <div class="toc-row"><span class="n">05</span><span class="t">About<small>The person people call when it matters</small></span><span class="pg">Page 07</span></div>
-          <div class="toc-row"><span class="n">06</span><span class="t">In their words<small>What clients say</small></span><span class="pg">Page 08</span></div>
+          <div class="toc-row"><span class="n">04</span><span class="t">A situation I see often<small>An illustrative story of a partnership at a crossroads</small></span><span class="pg">Page 06</span></div>
+          <div class="toc-row"><span class="n">05</span><span class="t">Before you litigate<small>The most expensive decision you can rush</small></span><span class="pg">Page 07</span></div>
+          <div class="toc-row"><span class="n">06</span><span class="t">What you walk away with<small>The value of clarity, made concrete</small></span><span class="pg">Page 08</span></div>
+          <div class="toc-row"><span class="n">07</span><span class="t">About<small>The person people call when it matters</small></span><span class="pg">Page 09</span></div>
+          <div class="toc-row"><span class="n">08</span><span class="t">In their words<small>What clients say — and how to begin</small></span><span class="pg">Page 10</span></div>
         </div>
       </div>
       <div class="rf"><span class="u">partnerguru.org</span><span>Confidential</span></div>
@@ -262,20 +308,20 @@
             <span class="ctag">Building something new</span>
             <h3>Getting it right from day one</h3>
             <ul>
-              <li><strong>Starting a new partnership</strong><span>Foundations, terms, and expectations set clearly before the work begins.</span></li>
-              <li><strong>Joint ventures</strong><span>Structuring a shared venture so everyone is protected.</span></li>
-              <li><strong>Equity discussions</strong><span>Dividing ownership fairly — without the resentment that surfaces later.</span></li>
-              <li><strong>Succession planning</strong><span>Passing the business to its next chapter with care.</span></li>
+              <li><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><circle cx="8.5" cy="14" r="4.5"/><circle cx="19.5" cy="14" r="4.5"/><path d="M13 14h2"/></svg></span><span><strong>Starting a new partnership</strong><span class="d">Foundations and expectations set clearly before the work begins.</span></span></li>
+              <li><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><circle cx="11.5" cy="14" r="5.5"/><circle cx="16.5" cy="14" r="5.5"/></svg></span><span><strong>Joint ventures</strong><span class="d">Structuring a shared venture so everyone is protected.</span></span></li>
+              <li><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><circle cx="14" cy="14" r="8.5"/><path d="M14 14V5.5"/><path d="M14 14l7.5 4"/></svg></span><span><strong>Equity discussions</strong><span class="d">Dividing ownership fairly — without resentment later.</span></span></li>
+              <li><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><path d="M6 22V12a3 3 0 0 1 3-3h9"/><path d="M15 5.5 19.5 9 15 12.5"/></svg></span><span><strong>Succession planning</strong><span class="d">Passing the business to its next chapter with care.</span></span></li>
             </ul>
           </div>
           <div class="col hard">
             <span class="ctag">When things get complicated</span>
             <h3>Finding a way forward</h3>
             <ul>
-              <li><strong>Different visions</strong><span>Partners who see the pace, priorities, or direction differently.</span></li>
-              <li><strong>Out of balance</strong><span>When contribution, reward, or control no longer feel fair.</span></li>
-              <li><strong>Family &amp; friendship</strong><span>Protecting the relationship and the business at the same time.</span></li>
-              <li><strong>A graceful exit</strong><span>Separating with clarity and dignity — not a costly fight.</span></li>
+              <li><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><path d="M13 9H4"/><path d="M7.5 5.5 4 9l3.5 3.5"/><path d="M15 19h9"/><path d="M20.5 15.5 24 19l-3.5 3.5"/></svg></span><span><strong>Different visions</strong><span class="d">Partners who see the pace or direction differently.</span></span></li>
+              <li><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><path d="M14 6v15"/><path d="M8 21h12"/><path d="M6.5 10.5h15"/><path d="M6.5 10.5 4 16h5z"/><path d="M21.5 10.5 19 16h5z"/></svg></span><span><strong>Out of balance</strong><span class="d">When contribution, reward, or control no longer feel fair.</span></span></li>
+              <li><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><path d="M14 21.5S6.5 17 6.5 11.5A3.9 3.9 0 0 1 14 8.2a3.9 3.9 0 0 1 7.5 3.3C21.5 17 14 21.5 14 21.5z"/></svg></span><span><strong>Family &amp; friendship</strong><span class="d">Protecting the relationship and the business at once.</span></span></li>
+              <li><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><path d="M15 6H8v16h7"/><path d="M12 14h9"/><path d="M18 11l3.5 3-3.5 3"/></svg></span><span><strong>A graceful exit</strong><span class="d">Separating with clarity and dignity — not a costly fight.</span></span></li>
             </ul>
           </div>
         </div>
@@ -288,23 +334,24 @@
       <div class="rh"><div class="brand"><img src="assets/logo.png" alt=""><span>PartnerGuru</span></div><div class="sec">03 · How the Work Works</div></div>
       <div class="hr"></div>
       <div class="body">
-        <span class="signo">03</span>
         <p class="eyebrow">How the work works</p>
         <h2 class="lead-h">A focused process — not open-ended consulting.</h2>
         <p class="sub-note">The PartnerGuru Intensive is a focused ten hours, typically over about two weeks: confidential sessions first, then clarity, then a clear plan you can act on.</p>
-        <div class="steps">
-          <div class="step">
-            <div class="num">1</div>
-            <div><h3>The Conversation</h3><p>Confidential sessions — individually or together — to understand the situation, the people involved, and what's truly at stake.</p></div>
-          </div>
-          <div class="step">
-            <div class="num">2</div>
-            <div><h3>The Clarity</h3><p>I reflect back what's really going on, name the real issues, and bring steady, neutral perspective to the decision in front of you.</p></div>
-          </div>
-          <div class="step">
-            <div class="num">3</div>
-            <div><h3>The Decision</h3><p>We map practical paths forward — alignment, restructuring, or respectful separation — and you leave with an action plan you can rely on.</p></div>
-          </div>
+        <svg class="proc-dia" viewBox="0 0 660 96" fill="none">
+          <line x1="90" y1="48" x2="270" y2="48" stroke="#c9d6df" stroke-width="2"/>
+          <line x1="390" y1="48" x2="570" y2="48" stroke="#c9d6df" stroke-width="2"/>
+          <path d="M262 42l10 6-10 6" stroke="#69b0d3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M562 42l10 6-10 6" stroke="#69b0d3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <g>
+            <circle cx="60" cy="48" r="30" fill="#16233d"/><text x="60" y="58" text-anchor="middle" font-family="Fraunces, serif" font-size="26" fill="#fff">1</text>
+            <circle cx="330" cy="48" r="30" fill="#16233d"/><text x="330" y="58" text-anchor="middle" font-family="Fraunces, serif" font-size="26" fill="#fff">2</text>
+            <circle cx="600" cy="48" r="30" fill="#16233d"/><text x="600" y="58" text-anchor="middle" font-family="Fraunces, serif" font-size="26" fill="#fff">3</text>
+          </g>
+        </svg>
+        <div class="proc-cols">
+          <div><h3>The Conversation</h3><p>Confidential sessions — individually or together — to understand the situation, the people involved, and what's truly at stake.</p></div>
+          <div><h3>The Clarity</h3><p>I reflect back what's really going on, name the real issues, and bring steady, independent perspective to the decision in front of you.</p></div>
+          <div><h3>The Decision</h3><p>We map practical paths forward — alignment, restructuring, or respectful separation — and you leave with an action plan you can rely on.</p></div>
         </div>
         <div class="badges">
           <span class="badge"><b>·</b> Strictly confidential</span>
@@ -315,22 +362,76 @@
       <div class="rf"><span class="u">partnerguru.org</span><span>05</span></div>
     </section>
 
-    <!-- ============ 6. LITIGATION ============ -->
-    <section class="page navy lit">
-      <div class="rh"><div class="brand"><img src="assets/logo-white.png" alt=""><span>PartnerGuru</span></div><div class="sec">04 · Before You Litigate</div></div>
+    <!-- ============ 6. CASE STUDY ============ -->
+    <section class="page cream">
+      <div class="rh"><div class="brand"><img src="assets/logo.png" alt=""><span>PartnerGuru</span></div><div class="sec">04 · A Situation I See Often</div></div>
       <div class="hr"></div>
       <div class="body">
+        <span class="cs-label">Illustrative example · details changed</span>
+        <h2 class="lead-h">When “buy me out” wasn't really the problem.</h2>
+        <div class="cs">
+          <p>Two partners had built a distribution business over fifteen years — worth several million, and the backbone of both their families. Then one of them wanted out. He demanded a buyout and hinted at lawyers. The other felt blindsided and betrayed. Within weeks they were barely speaking, and each had a litigator's number on the desk.</p>
+          <p>In our confidential sessions, a different story surfaced. The partner who wanted out had had a health scare. He wasn't chasing money — he was chasing <em>security</em>, and didn't know how to say so. The other wasn't refusing to be fair — he felt abandoned by the person he'd trusted for half his life.</p>
+          <p>Once that was on the table, the real question changed. Not “who wins the buyout,” but “how do we honor both of their futures?” We structured a gradual, partial buyout with an earnout: one partner stepped back with the security he needed, while the other took majority control and kept building.</p>
+        </div>
+        <svg class="crossroads" viewBox="0 0 620 190" fill="none">
+          <path d="M30 165 C 150 165 200 110 270 100" stroke="#16233d" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M270 100 C 360 88 430 60 590 46" stroke="#69b0d3" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M270 100 C 360 112 430 150 590 168" stroke="#a9b2c0" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 7"/>
+          <circle cx="270" cy="100" r="5.5" fill="#256a90"/>
+          <text x="596" y="44" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#256a90" text-anchor="end">A better path</text>
+          <text x="596" y="182" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#8a93a1" text-anchor="end">Years in court</text>
+        </svg>
+        <div class="cs-outcome">
+          <div class="o"><b>$0</b><span>spent fighting in court</span></div>
+          <div class="o"><b>15 years</b><span>of partnership preserved</span></div>
+          <div class="o"><b>2 families</b><span>protected — and still talking</span></div>
+        </div>
+        <p class="cs-foot">An illustrative example — a composite drawn from common situations, with all identifying details changed. Every engagement is different, and results are not guaranteed.</p>
+      </div>
+      <div class="rf"><span class="u">partnerguru.org</span><span>06</span></div>
+    </section>
+
+    <!-- ============ 7. LITIGATION ============ -->
+    <section class="page navy lit">
+      <div class="rh"><div class="brand"><img src="assets/logo-white.png" alt=""><span>PartnerGuru</span></div><div class="sec">05 · Before You Litigate</div></div>
+      <div class="hr"></div>
+      <div class="body">
+        <svg class="lit-motif" viewBox="0 0 300 300" fill="none" stroke="#8cc4e0" stroke-width="1">
+          <path d="M20 280 C 120 280 150 160 300 120"/><path d="M150 200 C 220 190 260 170 300 165"/>
+          <circle cx="150" cy="200" r="4" fill="#8cc4e0" stroke="none"/>
+        </svg>
         <p class="eyebrow">A word from experience</p>
         <h2>Even considering litigation? <em>Talk to me first.</em></h2>
         <p class="p">I'm not an attorney, and I won't represent you in court. But I've been through litigation myself — and I've guided others through serious disputes for over 25 years. I know what a legal battle really costs: in money, in time, and in relationships that can't be rebuilt.</p>
         <p class="close">Sometimes litigation is the right call. More often, there's a faster, less damaging path. <b>Either way, you'll see it clearly before you commit.</b></p>
       </div>
-      <div class="rf"><span class="u">partnerguru.org</span><span>06</span></div>
+      <div class="rf"><span class="u">partnerguru.org</span><span>07</span></div>
     </section>
 
-    <!-- ============ 7. ABOUT ============ -->
+    <!-- ============ 8. WHAT YOU WALK AWAY WITH ============ -->
     <section class="page cream">
-      <div class="rh"><div class="brand"><img src="assets/logo.png" alt=""><span>PartnerGuru</span></div><div class="sec">05 · About</div></div>
+      <div class="rh"><div class="brand"><img src="assets/logo.png" alt=""><span>PartnerGuru</span></div><div class="sec">06 · What You Walk Away With</div></div>
+      <div class="hr"></div>
+      <div class="body">
+        <p class="eyebrow">What you walk away with</p>
+        <h2 class="lead-h">Clarity you can act on.</h2>
+        <p class="intro-line">This isn't advice you file away. It's a decision you can stand behind — and the confidence that comes with it.</p>
+        <div class="gains">
+          <div class="gain"><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><path d="M2 14s4-7 12-7 12 7 12 7-4 7-12 7S2 14 2 14z"/><circle cx="14" cy="14" r="3"/></svg></span><div><h3>The real picture</h3><p>Clarity on what's actually driving the situation — not just the surface argument.</p></div></div>
+          <div class="gain"><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><circle cx="14" cy="14" r="9"/><path d="M10 14l3 3 5-6"/></svg></span><div><h3>A decision you trust</h3><p>A choice you can stand behind, made with perspective instead of pressure.</p></div></div>
+          <div class="gain"><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><path d="M8 4h8l4 4v16H8z"/><path d="M16 4v4h4"/><path d="M11 15h8M11 19h5"/></svg></span><div><h3>A practical plan</h3><p>Clear, concrete next steps — alignment, restructuring, or a respectful exit.</p></div></div>
+          <div class="gain"><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><path d="M14 21.5S6.5 17 6.5 11.5A3.9 3.9 0 0 1 14 8.2a3.9 3.9 0 0 1 7.5 3.3C21.5 17 14 21.5 14 21.5z"/></svg></span><div><h3>Protected relationships</h3><p>Your partnerships, reputation, and family ties handled with care.</p></div></div>
+          <div class="gain"><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><circle cx="14" cy="14" r="9"/><path d="M14 9v5l4 2"/></svg></span><div><h3>Time and money saved</h3><p>The years and dollars a drawn-out fight would have quietly consumed.</p></div></div>
+          <div class="gain"><span class="ictile"><svg class="ic" viewBox="0 0 28 28"><path d="M5 7h18v12H15l-5 4v-4H5z"/></svg></span><div><h3>A confidential ally</h3><p>Someone in your corner who has seen where both roads lead.</p></div></div>
+        </div>
+      </div>
+      <div class="rf"><span class="u">partnerguru.org</span><span>08</span></div>
+    </section>
+
+    <!-- ============ 9. ABOUT ============ -->
+    <section class="page">
+      <div class="rh"><div class="brand"><img src="assets/logo.png" alt=""><span>PartnerGuru</span></div><div class="sec">07 · About</div></div>
       <div class="hr"></div>
       <div class="body">
         <p class="eyebrow">About</p>
@@ -339,21 +440,22 @@
           <img src="assets/photo-two.jpeg" alt="Mendy Chanin, founder of PartnerGuru" />
           <div class="about-copy">
             <p class="first">I'm Mendy Chanin, founder of PartnerGuru. I spent more than two decades building and funding businesses — as a CEO, a CFO, and a direct funding source for hundreds of small and mid-size companies. Along the way, I became the person partners and owners called when things got complicated.</p>
-            <p>Clients describe my approach as calm, thoughtful, and practical. My job is to ask the right questions, help you see what you couldn't see before, and bring steady perspective to the conversations that matter most — with clarity, fairness, and integrity.</p>
+            <p>Over the past 25 years, I've helped business owners, entrepreneurs, partners, and investors navigate negotiations, ownership decisions, restructurings, and high-stakes conversations involving millions of dollars in business value.</p>
+            <p>Clients describe my approach as calm, thoughtful, and practical — with clarity, fairness, and integrity.</p>
             <div class="creds">
               <span>25+ years experience</span><span>Strategic advisor</span>
-              <span>Business-strategy depth</span><span>Trusted with partners &amp; investors</span>
+              <span>Millions in business value protected</span><span>Trusted with partners &amp; investors</span>
             </div>
           </div>
         </div>
         <p class="sig">— My goal is simple: to help good people handle tough moments well.</p>
       </div>
-      <div class="rf"><span class="u">partnerguru.org</span><span>07</span></div>
+      <div class="rf"><span class="u">partnerguru.org</span><span>09</span></div>
     </section>
 
-    <!-- ============ 8. TESTIMONIALS ============ -->
-    <section class="page">
-      <div class="rh"><div class="brand"><img src="assets/logo.png" alt=""><span>PartnerGuru</span></div><div class="sec">06 · In Their Words</div></div>
+    <!-- ============ 10. TESTIMONIALS ============ -->
+    <section class="page cream">
+      <div class="rh"><div class="brand"><img src="assets/logo.png" alt=""><span>PartnerGuru</span></div><div class="sec">08 · In Their Words</div></div>
       <div class="hr"></div>
       <div class="body">
         <p class="eyebrow">In their words</p>
@@ -366,7 +468,7 @@
           </figure>
           <figure class="q">
             <div class="mark">“</div>
-            <blockquote>His advice helped me navigate an important partnership with my producer, negotiate effectively, and achieve the results I was looking for while keeping my long-term goals in focus. His insight and genuine commitment gave me the confidence to make the right decisions.</blockquote>
+            <blockquote>His advice helped me navigate an important partnership, negotiate effectively, and achieve the results I was looking for while keeping my long-term goals in focus. His insight and genuine commitment gave me the confidence to make the right decisions.</blockquote>
             <figcaption><strong>Antonio Rubio</strong> · <span>Actor / Producer</span></figcaption>
           </figure>
           <figure class="q">
@@ -380,10 +482,29 @@
           <span class="d">Testimonials reflect individual experiences, shared with permission. Results vary and are not guaranteed.</span>
         </div>
       </div>
-      <div class="rf"><span class="u">partnerguru.org</span><span>08</span></div>
+      <div class="rf"><span class="u">partnerguru.org</span><span>10</span></div>
     </section>
 
-    <!-- ============ 9. BACK COVER ============ -->
+    <!-- ============ 11. HOW TO BEGIN ============ -->
+    <section class="page">
+      <div class="rh"><div class="brand"><img src="assets/logo.png" alt=""><span>PartnerGuru</span></div><div class="sec">How to Begin</div></div>
+      <div class="hr"></div>
+      <div class="body">
+        <p class="eyebrow">How to begin</p>
+        <h2 class="lead-h">Three simple steps.</h2>
+        <div class="begin-steps">
+          <div class="bstep"><div class="bn">1</div><div><h3>Reach out</h3><p>Send a note through partnerguru.org. Tell me only as much as you're comfortable sharing — everything is held in strict confidence from the first word.</p></div></div>
+          <div class="bstep"><div class="bn">2</div><div><h3>A confidential conversation</h3><p>We speak for about 30 minutes, at no charge, so I can understand what you're facing and we can see whether I'm the right fit to help.</p></div></div>
+          <div class="bstep"><div class="bn">3</div><div><h3>We design the engagement</h3><p>If it makes sense to work together, I'll recommend the right level of support and we'll map out exactly how we'll get you to clarity.</p></div></div>
+        </div>
+        <div class="begin-note">
+          <p><strong>Your first 30-minute consultation is complimentary and completely confidential.</strong> There's no pressure — just an honest look at your situation and the smartest next step, whatever that turns out to be.</p>
+        </div>
+      </div>
+      <div class="rf"><span class="u">partnerguru.org</span><span>11</span></div>
+    </section>
+
+    <!-- ============ 12. BACK COVER ============ -->
     <section class="page navy back">
       <div class="body">
         <img class="mk" src="assets/logo-white.png" alt="PartnerGuru" />
